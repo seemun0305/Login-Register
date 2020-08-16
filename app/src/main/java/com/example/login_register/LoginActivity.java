@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         auth = FirebaseAuth.getInstance();
-        if (auth.getCurrentUser() == null) {
+        if (auth.getCurrentUser() != null) {
 
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, home.class);
                                     startActivity(intent);
                                     finish();
                                 }

@@ -18,4 +18,20 @@
     <string name="reset_password">Please enter your email and we will send you password reset instructions</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="back">Back to log in if remember your password</string>
+    <string name="about_us">About Us</string>
+    <string name="come_get_to_know_us">Come get to know us</string>
+    <string name="services_amp_products_info"><![CDATA[Services & Products Info]]></string>
+    <string name="info">Know more about our services and produncts information</string>
+    <string name="list">Come to see our services and products</string>
+    <string name="services_amp_produncts_list"><![CDATA[Services & Produncts List]]></string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="addtocart">Come to see what you choose</string>
+    <string name="booking">Booking</string>
+    <string name="book_services">Faster booking our services</string>
+    <string name="payment">Payment</string>
+    <string name="pay">Pay your services and products amount</string>
+    <string name="history">History</string>
+    <string name="history_pay">Come to see your payment history</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="contact">Contact us if have any problem</string>
 </resources>
