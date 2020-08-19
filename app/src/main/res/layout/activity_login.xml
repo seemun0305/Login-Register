@@ -51,10 +51,10 @@
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_centerInParent="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
+        android:layout_centerInParent="true"
         android:background="#F7E4FA"
         android:fontFamily="sans-serif-black"
         android:hint="Password"
@@ -105,5 +105,12 @@
         android:textSize="15sp" />
 
     </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone" />
 
 </LinearLayout>

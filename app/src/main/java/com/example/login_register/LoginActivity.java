@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private Button btnSignup, btnLogin,btnreset,btnback;
     private FirebaseAuth auth;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         btnback = (Button) findViewById(R.id.btnback);
         inputEmail = (EditText) findViewById(R.id.et_email);
         inputPassword = (EditText) findViewById(R.id.et_password);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         btnreset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,10 +70,12 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                progressBar.setVisibility(View.VISIBLE);
                 auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                progressBar.setVisibility(View.GONE);
                                 if (!task.isSuccessful()) {
 
                                     if (password.length() < 6) {

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword,inputname;
     private Button btnSignIn, btnSignUp,btnresetPassword,btnBack;
     private FirebaseAuth auth;
+    private ProgressBar progressBar;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         inputname = (EditText) findViewById(R.id.et_name);
         inputEmail = (EditText) findViewById(R.id.et_email);
         inputPassword = (EditText) findViewById(R.id.et_password);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         btnresetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,12 +83,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                progressBar.setVisibility(View.VISIBLE);
                 //create user
                 auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Toast.makeText(MainActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(MainActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
@@ -139,6 +143,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressBar.setVisibility(View.GONE);
     }
 
 }
